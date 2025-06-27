@@ -1,0 +1,42 @@
+﻿/* mystylesheet.css */
+
+body {
+    background-color: #f5f9f2; /* verde muito claro */
+    color: #0b3d0b; /* verde escuro para texto */
+}
+
+.form-container {
+    background-color: #ffffff; /* branco para contraste */
+    border: 2px solid #0b3d0b; /* verde escuro */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(11, 61, 11, 0.2);
+}
+
+label {
+    font-weight: 600;
+    color: #0b3d0b;
+}
+
+.btn-eco {
+    background-color: #0b3d0b;
+    color: white;
+    border: none;
+}
+
+    .btn-eco:hover {
+        background-color: #144d14;
+        color: white;
+    }
+
+input.form-control, select.form-select {
+    border: 1.5px solid #0b3d0b;
+}
+
+    input.form-control:focus, select.form-select:focus {
+        border-color: #2a7a2a;
+        box-shadow: 0 0 5px #2a7a2a;
+    }
+
+h1 {
+    color: #0b3d0b;
+}

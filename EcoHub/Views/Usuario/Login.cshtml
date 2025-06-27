@@ -1,0 +1,60 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aceder ao portal</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Reset e estilos -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .form-wrapper {
+            margin-top: 80px; /* Ajusta essa margem conforme quiseres */
+        }
+    </style>
+    <link rel="stylesheet" href="/css/EcoHub.css" />
+</head>
+<body class="bg-white">
+
+    @if (ViewBag.MensagemErro != null)
+    {
+        <div class="alert alert-danger text-center">
+            @ViewBag.MensagemErro
+        </div>
+    }
+
+    <div class="container form-wrapper">
+        <div class="mx-auto border rounded p-4 shadow-sm" style="max-width: 450px;">
+            <h2 class="mb-4 text-center">Fazer Login</h2>
+
+            <form method="post" action="/Usuario/Login">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Utilizador</label>
+                    <input type="text" class="form-control border-dark" id="email" name="email" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="senha" class="form-label">Senha</label>
+                    <input type="password" class="form-control border-dark" id="senha" name="senha" required />
+                </div>
+
+                <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-success">Entrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

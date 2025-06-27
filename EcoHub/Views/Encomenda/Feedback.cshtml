@@ -1,0 +1,54 @@
+﻿@using EcoHub.Models;
+@model Produto;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detalhe</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="/css/EcoHub.css" rel="stylesheet" />
+</head>
+<body class="container mt-4">
+
+    <h1 class="mb-4">Detalhe do Produto</h1>
+
+    <table class="table table-bordered table-striped">
+        <tbody>
+            <tr>
+                <th>Guid:</th>
+                <td>@Model.GuidProduto</td>
+            </tr>
+            <tr>
+                <th>Designação:</th>
+                <td>@Model.designacao</td>
+            </tr>
+            <tr>
+                <th>Preço Unitário:</th>
+                <td>@Model.preco_unitario</td>
+            </tr>
+            <tr>
+                <th>Quantidade:</th>
+                <td>@Model.estoque</td>
+            </tr>
+            <tr>
+                <th>Estado:</th>
+                <td>@(Model.estado_produto == Produto.EstadoProduto.Disponivel ? "Disponível" : "Esgotado")</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="d-flex gap-2">
+        <a href="/Produto/Index" class="btn btn-outline-dark">Outros Produtos</a>
+        <a href="/Encomenda/Encomendar/@Model.GuidProduto" class="btn btn-success">Encomendar</a>
+    </div>
+
+</body>
+</html>
