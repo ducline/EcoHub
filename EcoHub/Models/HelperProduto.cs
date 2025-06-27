@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Tokens;
 using System.Data;
+using System.Diagnostics;
 
 namespace EcoHub.Models.Helpers
 {
@@ -106,6 +107,7 @@ namespace EcoHub.Models.Helpers
                     //                "VALUES " +
                     //                "(@designacao, @preco_unitario, @estoque, @Estado_Produto)";
                     instrucaoSQL = "QProduto_Insert";
+                    Debug.WriteLine("Inserting new product: " + produto2Save.designacao);
                 }
                 else
                 {
@@ -114,6 +116,7 @@ namespace EcoHub.Models.Helpers
                     //                "estoque = @estoque, estado_produto = @Estado_Produto " +
                     //                "WHERE guidProduto = @GuidProduto";
                     instrucaoSQL = "QProduto_Update";
+                    Debug.WriteLine("Updating product: " + produto2Save.designacao + " with Guid: " + produto2Save.GuidProduto);
                 }
                 SqlCommand comando = new SqlCommand();
                 SqlConnection conexao = new SqlConnection(ConetorHerdado);
@@ -134,6 +137,7 @@ namespace EcoHub.Models.Helpers
                 result = true;
 
             }
+            Debug.WriteLine("Sucessfully Updated/Inserted product: " + produto2Save?.designacao);
             return result;
         }
 

@@ -20,6 +20,7 @@ namespace EcoHub.Models {
         public decimal preco_unitario { get; set; }
         public decimal estoque { get; set; }
         public EstadoProduto estado_produto { get; set; }
+        //public string imagem_nome { get; set; }
 
 
         public Produto() {
@@ -28,6 +29,7 @@ namespace EcoHub.Models {
             preco_unitario = 0.0M;
             estoque = 0.0M;
             estado_produto = EstadoProduto.Disponivel;
+            //imagem_nome = "";
         }
         public Produto(string GuidProduto) {
             //_guidProduto = GuidProduto;
@@ -36,6 +38,7 @@ namespace EcoHub.Models {
             preco_unitario = 0.0M;
             estoque = 0.0M;
             estado_produto = EstadoProduto.Disponivel;
+            //imagem_nome = "";
         }
     }
 }

@@ -78,28 +78,28 @@ namespace EcoHub.Controllers {
         }
 
         [HttpPost]
-        public IActionResult Criar(Produto produto, IFormFile imagem)
+        public IActionResult Criar(Produto produto)
         {
             if (_usuario.nivel_acesso > 1)
             {
                 if (ModelState.IsValid)
                 {
                     // handle image upload
-                    if (imagem != null && imagem.Length > 0)
-                    {
-                        string pasta = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "imagens");
-                        if (!Directory.Exists(pasta)) Directory.CreateDirectory(pasta);
+                    //if (imagem != null && imagem.Length > 0)
+                    //{
+                    //    string pasta = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "imagens");
+                    //    if (!Directory.Exists(pasta)) Directory.CreateDirectory(pasta);
 
-                        string nomeImagem = Guid.NewGuid().ToString() + Path.GetExtension(imagem.FileName);
-                        string caminhoCompleto = Path.Combine(pasta, nomeImagem);
+                    //    string nomeImagem = Guid.NewGuid().ToString() + Path.GetExtension(imagem.FileName);
+                    //    string caminhoCompleto = Path.Combine(pasta, nomeImagem);
 
-                        using (var stream = new FileStream(caminhoCompleto, FileMode.Create))
-                        {
-                            imagem.CopyTo(stream);
-                        }
+                    //    using (var stream = new FileStream(caminhoCompleto, FileMode.Create))
+                    //    {
+                    //        imagem.CopyTo(stream);
+                    //    }
 
-                        produto.imagem_nome = nomeImagem;
-                    }
+                    //    produto.imagem_nome = nomeImagem;
+                    //}
 
                     HelperProduto helper = new HelperProduto();
                     helper.save(produto);

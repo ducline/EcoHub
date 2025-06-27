@@ -18,7 +18,7 @@ namespace EcoHub.Models.Helpers
             comando.CommandType = CommandType.StoredProcedure;
             comando.Connection = conexao;
             comando.CommandText = "QEncomenda_List";
-            comando.Parameters.AddWithValue("@Estado_Produto", estado);
+            comando.Parameters.AddWithValue("@Estado_Encomenda", estado);
 
             telefone.SelectCommand = comando;
             telefone.Fill(dt);
@@ -103,14 +103,14 @@ namespace EcoHub.Models.Helpers
                     //instrucaoSQL = "INSERT INTO tPrenda " +
                     //                "(designacao, preco_unitario, estoque, estado_produto) " +
                     //                "VALUES " +
-                    //                "(@designacao, @preco_unitario, @estoque, @Estado_Produto)";
+                    //                "(@designacao, @preco_unitario, @estoque, @Estado_Encomenda)";
                     instrucaoSQL = "QEncomenda_Insert";
                 }
                 else
                 {
                     //instrucaoSQL = "UPDATE tPrenda " +
                     //                "SET designacao = @designacao, preco_unitario = @preco_unitario, " +
-                    //                "estoque = @estoque, estado_produto = @Estado_Produto " +
+                    //                "estoque = @estoque, estado_produto = @Estado_Encomenda " +
                     //                "WHERE guidEncomenda = @GuidEncomenda";
                     instrucaoSQL = "QEncomenda_Update";
                 }
@@ -123,7 +123,7 @@ namespace EcoHub.Models.Helpers
                 comando.Parameters.AddWithValue("@Designacao", encomenda2Save.guidUsuario);
                 comando.Parameters.AddWithValue("@Preco_Unitario", encomenda2Save.data_pedido);
                 comando.Parameters.AddWithValue("@Estoque", encomenda2Save.data_prevista_entrega);
-                comando.Parameters.AddWithValue("@Estado_Produto", encomenda2Save.estado_encomenda);
+                comando.Parameters.AddWithValue("@Estado_Encomenda", encomenda2Save.estado_encomenda);
                 comando.Parameters.AddWithValue("@GuidEncomenda", encomenda2Save.GuidEncomenda);
 
                 conexao.Open();

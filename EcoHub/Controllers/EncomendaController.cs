@@ -64,7 +64,7 @@ namespace EcoHub.Controllers {
                 return View(encomenda);
             }
             else {
-                return RedirectToAction("ListaEncomenda", "Encomenda");
+                return RedirectToAction("Lista", "Encomenda");
             }
         }
 
@@ -74,7 +74,7 @@ namespace EcoHub.Controllers {
             if (_usuario.nivel_acesso > 1) {
                 return View();
             }
-            return RedirectToAction("ListaEncomenda", "Encomenda");
+            return RedirectToAction("Lista", "Encomenda");
         }
 
         [HttpPost]
@@ -87,11 +87,11 @@ namespace EcoHub.Controllers {
                     //Program._prendas.Add(encomenda);
                     HelperEncomenda helper = new HelperEncomenda();
                     helper.save(encomenda);
-                    return RedirectToAction("ListaEncomenda", "Encomenda");
+                    return RedirectToAction("Lista", "Encomenda");
                 }
                 return View(encomenda);
             }
-            return RedirectToAction("ListaEncomenda", "Encomenda");
+            return RedirectToAction("Lista", "Encomenda");
         }
 
 
@@ -100,7 +100,7 @@ namespace EcoHub.Controllers {
                 HelperEncomenda helper = new HelperEncomenda();
                 helper.delete(id);
             }
-            return RedirectToAction("ListaEncomenda", "Encomenda");
+            return RedirectToAction("Lista", "Encomenda");
         }
 
     }
